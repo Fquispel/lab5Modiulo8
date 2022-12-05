@@ -1,0 +1,536 @@
+Started by user fernando
+Running as SYSTEM
+Building remotely on ubuntu in workspace /home/ferquispe/jenkins_slave/workspace/Django_project
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Fquispel/Modulo8-Docker.git
+ > git init /home/ferquispe/jenkins_slave/workspace/Django_project # timeout=10
+Fetching upstream changes from https://github.com/Fquispel/Modulo8-Docker.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/Fquispel/Modulo8-Docker.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Fquispel/Modulo8-Docker.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/docker^{commit} # timeout=10
+Checking out Revision c435be90a193f1a86c8ff8720e6f3a2f6e209946 (refs/remotes/origin/docker)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c435be90a193f1a86c8ff8720e6f3a2f6e209946 # timeout=10
+Commit message: "Agregando el Dockerfile y docker-compose"
+First time build. Skipping changelog.
+[Django_project] $ /bin/sh -xe /tmp/jenkins2402525194110427989.sh
++ docker-compose up -d
+Creating network "django_project_default" with the default driver
+Building web
+Sending build context to Docker daemon  410.6kB
+
+Step 1/7 : FROM python:3.8
+3.8: Pulling from library/python
+a8ca11554fce: Already exists
+e4e46864aba2: Already exists
+c85a0be79bfb: Already exists
+195ea6a58ca8: Already exists
+157f16ed0a0c: Already exists
+884b144bec28: Already exists
+8f3927bafdf3: Already exists
+f53d27ef4a90: Already exists
+0883f609470d: Already exists
+Digest: sha256:89986864f936860f6e74a7540ab98b23586011e90482b09125aa6792f2ea0195
+Status: Downloaded newer image for python:3.8
+ ---> 928a35165ae5
+Step 2/7 : ENV PYTHONUNBUFFERED 1
+ ---> Running in 563f49139512
+Removing intermediate container 563f49139512
+ ---> 07031e20f4c5
+Step 3/7 : RUN mkdir /code
+ ---> Running in c68579b3c80f
+Removing intermediate container c68579b3c80f
+ ---> fd110e9164fc
+Step 4/7 : WORKDIR /code
+ ---> Running in 6b4b3b035038
+Removing intermediate container 6b4b3b035038
+ ---> 92e48bdf87d9
+Step 5/7 : COPY requirements.txt /code/
+ ---> 19fe3e177a18
+Step 6/7 : RUN python -m pip install -r requirements.txt
+ ---> Running in f84dce42425c
+Collecting asgiref==3.5.2
+  Downloading asgiref-3.5.2-py3-none-any.whl (22 kB)
+Collecting certifi==2022.9.24
+  Downloading certifi-2022.9.24-py3-none-any.whl (161 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.1/161.1 KB 2.4 MB/s eta 0:00:00
+Collecting charset-normalizer==2.1.1
+  Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Collecting coreapi==2.3.3
+  Downloading coreapi-2.3.3-py2.py3-none-any.whl (25 kB)
+Collecting coreschema==0.0.4
+  Downloading coreschema-0.0.4.tar.gz (10 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting Django==4.1.2
+  Downloading Django-4.1.2-py3-none-any.whl (8.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.1/8.1 MB 4.9 MB/s eta 0:00:00
+Collecting djangorestframework==3.14.0
+  Downloading djangorestframework-3.14.0-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 5.9 MB/s eta 0:00:00
+Collecting drf-yasg==1.21.4
+  Downloading drf_yasg-1.21.4-py3-none-any.whl (6.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.4/6.4 MB 5.4 MB/s eta 0:00:00
+Collecting idna==3.4
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 KB 4.3 MB/s eta 0:00:00
+Collecting inflection==0.5.1
+  Downloading inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+Collecting itypes==1.2.0
+  Downloading itypes-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting Jinja2==3.1.2
+  Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 KB 5.1 MB/s eta 0:00:00
+Collecting MarkupSafe==2.1.1
+  Downloading MarkupSafe-2.1.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting packaging==21.3
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 KB 1.5 MB/s eta 0:00:00
+Collecting pyparsing==3.0.9
+  Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.3/98.3 KB 4.3 MB/s eta 0:00:00
+Collecting pytz==2022.4
+  Downloading pytz-2022.4-py2.py3-none-any.whl (500 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 500.8/500.8 KB 7.2 MB/s eta 0:00:00
+Collecting requests==2.28.1
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 KB 2.4 MB/s eta 0:00:00
+Collecting ruamel.yaml==0.17.21
+  Downloading ruamel.yaml-0.17.21-py3-none-any.whl (109 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 109.5/109.5 KB 5.3 MB/s eta 0:00:00
+Collecting ruamel.yaml.clib==0.2.6
+  Downloading ruamel.yaml.clib-0.2.6-cp38-cp38-manylinux1_x86_64.whl (570 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 570.4/570.4 KB 4.8 MB/s eta 0:00:00
+Collecting sqlparse==0.4.3
+  Downloading sqlparse-0.4.3-py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 KB 3.4 MB/s eta 0:00:00
+Collecting tzdata==2022.4
+  Downloading tzdata-2022.4-py2.py3-none-any.whl (336 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 336.7/336.7 KB 6.1 MB/s eta 0:00:00
+Collecting uritemplate==4.1.1
+  Downloading uritemplate-4.1.1-py2.py3-none-any.whl (10 kB)
+Collecting urllib3==1.26.12
+  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 KB 7.1 MB/s eta 0:00:00
+Collecting backports.zoneinfo
+  Downloading backports.zoneinfo-0.2.1-cp38-cp38-manylinux1_x86_64.whl (74 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.0/74.0 KB 5.7 MB/s eta 0:00:00
+Building wheels for collected packages: coreschema
+  Building wheel for coreschema (setup.py): started
+  Building wheel for coreschema (setup.py): finished with status 'done'
+  Created wheel for coreschema: filename=coreschema-0.0.4-py3-none-any.whl size=15030 sha256=68a36394d4b8c52e8f4bd1f4da3b24c01b5db21adc31d891ac5a9d68693389ea
+  Stored in directory: /root/.cache/pip/wheels/37/21/45/2ce3dd0189e3d2fb7a325b9d3e6491acb7882c8275466d5401
+Successfully built coreschema
+Installing collected packages: pytz, itypes, urllib3, uritemplate, tzdata, sqlparse, ruamel.yaml.clib, pyparsing, MarkupSafe, inflection, idna, charset-normalizer, certifi, backports.zoneinfo, asgiref, ruamel.yaml, requests, packaging, Jinja2, Django, djangorestframework, coreschema, coreapi, drf-yasg
+Successfully installed Django-4.1.2 Jinja2-3.1.2 MarkupSafe-2.1.1 asgiref-3.5.2 backports.zoneinfo-0.2.1 certifi-2022.9.24 charset-normalizer-2.1.1 coreapi-2.3.3 coreschema-0.0.4 djangorestframework-3.14.0 drf-yasg-1.21.4 idna-3.4 inflection-0.5.1 itypes-1.2.0 packaging-21.3 pyparsing-3.0.9 pytz-2022.4 requests-2.28.1 ruamel.yaml-0.17.21 ruamel.yaml.clib-0.2.6 sqlparse-0.4.3 tzdata-2022.4 uritemplate-4.1.1 urllib3-1.26.12
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[0m[91mWARNING: You are using pip version 22.0.4; however, version 22.3.1 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+[0mRemoving intermediate container f84dce42425c
+ ---> 53f004a81084
+Step 7/7 : COPY . /code/
+ ---> abeb9b4030f7
+Successfully built abeb9b4030f7
+Successfully tagged django_project_web:latest
+Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Creating django_project_web_1 ... 
+Creating django_project_web_1 ... done
+Finished: SUCCESS
+Started by user fernando
+Running as SYSTEM
+Building remotely on ubuntu in workspace /home/ferquispe/jenkins_slave/workspace/Django_project
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Fquispel/Modulo8-Docker.git
+ > git init /home/ferquispe/jenkins_slave/workspace/Django_project # timeout=10
+Fetching upstream changes from https://github.com/Fquispel/Modulo8-Docker.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/Fquispel/Modulo8-Docker.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Fquispel/Modulo8-Docker.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/docker^{commit} # timeout=10
+Checking out Revision c435be90a193f1a86c8ff8720e6f3a2f6e209946 (refs/remotes/origin/docker)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c435be90a193f1a86c8ff8720e6f3a2f6e209946 # timeout=10
+Commit message: "Agregando el Dockerfile y docker-compose"
+First time build. Skipping changelog.
+[Django_project] $ /bin/sh -xe /tmp/jenkins2402525194110427989.sh
++ docker-compose up -d
+Creating network "django_project_default" with the default driver
+Building web
+Sending build context to Docker daemon  410.6kB
+
+Step 1/7 : FROM python:3.8
+3.8: Pulling from library/python
+a8ca11554fce: Already exists
+e4e46864aba2: Already exists
+c85a0be79bfb: Already exists
+195ea6a58ca8: Already exists
+157f16ed0a0c: Already exists
+884b144bec28: Already exists
+8f3927bafdf3: Already exists
+f53d27ef4a90: Already exists
+0883f609470d: Already exists
+Digest: sha256:89986864f936860f6e74a7540ab98b23586011e90482b09125aa6792f2ea0195
+Status: Downloaded newer image for python:3.8
+ ---> 928a35165ae5
+Step 2/7 : ENV PYTHONUNBUFFERED 1
+ ---> Running in 563f49139512
+Removing intermediate container 563f49139512
+ ---> 07031e20f4c5
+Step 3/7 : RUN mkdir /code
+ ---> Running in c68579b3c80f
+Removing intermediate container c68579b3c80f
+ ---> fd110e9164fc
+Step 4/7 : WORKDIR /code
+ ---> Running in 6b4b3b035038
+Removing intermediate container 6b4b3b035038
+ ---> 92e48bdf87d9
+Step 5/7 : COPY requirements.txt /code/
+ ---> 19fe3e177a18
+Step 6/7 : RUN python -m pip install -r requirements.txt
+ ---> Running in f84dce42425c
+Collecting asgiref==3.5.2
+  Downloading asgiref-3.5.2-py3-none-any.whl (22 kB)
+Collecting certifi==2022.9.24
+  Downloading certifi-2022.9.24-py3-none-any.whl (161 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.1/161.1 KB 2.4 MB/s eta 0:00:00
+Collecting charset-normalizer==2.1.1
+  Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Collecting coreapi==2.3.3
+  Downloading coreapi-2.3.3-py2.py3-none-any.whl (25 kB)
+Collecting coreschema==0.0.4
+  Downloading coreschema-0.0.4.tar.gz (10 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting Django==4.1.2
+  Downloading Django-4.1.2-py3-none-any.whl (8.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.1/8.1 MB 4.9 MB/s eta 0:00:00
+Collecting djangorestframework==3.14.0
+  Downloading djangorestframework-3.14.0-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 5.9 MB/s eta 0:00:00
+Collecting drf-yasg==1.21.4
+  Downloading drf_yasg-1.21.4-py3-none-any.whl (6.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.4/6.4 MB 5.4 MB/s eta 0:00:00
+Collecting idna==3.4
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 KB 4.3 MB/s eta 0:00:00
+Collecting inflection==0.5.1
+  Downloading inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+Collecting itypes==1.2.0
+  Downloading itypes-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting Jinja2==3.1.2
+  Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 KB 5.1 MB/s eta 0:00:00
+Collecting MarkupSafe==2.1.1
+  Downloading MarkupSafe-2.1.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting packaging==21.3
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 KB 1.5 MB/s eta 0:00:00
+Collecting pyparsing==3.0.9
+  Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.3/98.3 KB 4.3 MB/s eta 0:00:00
+Collecting pytz==2022.4
+  Downloading pytz-2022.4-py2.py3-none-any.whl (500 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 500.8/500.8 KB 7.2 MB/s eta 0:00:00
+Collecting requests==2.28.1
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 KB 2.4 MB/s eta 0:00:00
+Collecting ruamel.yaml==0.17.21
+  Downloading ruamel.yaml-0.17.21-py3-none-any.whl (109 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 109.5/109.5 KB 5.3 MB/s eta 0:00:00
+Collecting ruamel.yaml.clib==0.2.6
+  Downloading ruamel.yaml.clib-0.2.6-cp38-cp38-manylinux1_x86_64.whl (570 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 570.4/570.4 KB 4.8 MB/s eta 0:00:00
+Collecting sqlparse==0.4.3
+  Downloading sqlparse-0.4.3-py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 KB 3.4 MB/s eta 0:00:00
+Collecting tzdata==2022.4
+  Downloading tzdata-2022.4-py2.py3-none-any.whl (336 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 336.7/336.7 KB 6.1 MB/s eta 0:00:00
+Collecting uritemplate==4.1.1
+  Downloading uritemplate-4.1.1-py2.py3-none-any.whl (10 kB)
+Collecting urllib3==1.26.12
+  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 KB 7.1 MB/s eta 0:00:00
+Collecting backports.zoneinfo
+  Downloading backports.zoneinfo-0.2.1-cp38-cp38-manylinux1_x86_64.whl (74 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.0/74.0 KB 5.7 MB/s eta 0:00:00
+Building wheels for collected packages: coreschema
+  Building wheel for coreschema (setup.py): started
+  Building wheel for coreschema (setup.py): finished with status 'done'
+  Created wheel for coreschema: filename=coreschema-0.0.4-py3-none-any.whl size=15030 sha256=68a36394d4b8c52e8f4bd1f4da3b24c01b5db21adc31d891ac5a9d68693389ea
+  Stored in directory: /root/.cache/pip/wheels/37/21/45/2ce3dd0189e3d2fb7a325b9d3e6491acb7882c8275466d5401
+Successfully built coreschema
+Installing collected packages: pytz, itypes, urllib3, uritemplate, tzdata, sqlparse, ruamel.yaml.clib, pyparsing, MarkupSafe, inflection, idna, charset-normalizer, certifi, backports.zoneinfo, asgiref, ruamel.yaml, requests, packaging, Jinja2, Django, djangorestframework, coreschema, coreapi, drf-yasg
+Successfully installed Django-4.1.2 Jinja2-3.1.2 MarkupSafe-2.1.1 asgiref-3.5.2 backports.zoneinfo-0.2.1 certifi-2022.9.24 charset-normalizer-2.1.1 coreapi-2.3.3 coreschema-0.0.4 djangorestframework-3.14.0 drf-yasg-1.21.4 idna-3.4 inflection-0.5.1 itypes-1.2.0 packaging-21.3 pyparsing-3.0.9 pytz-2022.4 requests-2.28.1 ruamel.yaml-0.17.21 ruamel.yaml.clib-0.2.6 sqlparse-0.4.3 tzdata-2022.4 uritemplate-4.1.1 urllib3-1.26.12
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[0m[91mWARNING: You are using pip version 22.0.4; however, version 22.3.1 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+[0mRemoving intermediate container f84dce42425c
+ ---> 53f004a81084
+Step 7/7 : COPY . /code/
+ ---> abeb9b4030f7
+Successfully built abeb9b4030f7
+Successfully tagged django_project_web:latest
+Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Creating django_project_web_1 ... 
+Creating django_project_web_1 ... done
+Finished: SUCCESS
+
+
+Started by user fernando
+Running as SYSTEM
+Building remotely on ubuntu in workspace /home/ferquispe/jenkins_slave/workspace/Vue_project
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /home/ferquispe/jenkins_slave/workspace/Vue_project/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Fquispel/Lab4Modulo8.git # timeout=10
+Fetching upstream changes from https://github.com/Fquispel/Lab4Modulo8.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/Fquispel/Lab4Modulo8.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision a14f8a7e49612ae2e7a710ec678b332d8f70a7a9 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a14f8a7e49612ae2e7a710ec678b332d8f70a7a9 # timeout=10
+Commit message: "Update README.md"
+ > git rev-list --no-walk a14f8a7e49612ae2e7a710ec678b332d8f70a7a9 # timeout=10
+[Vue_project] $ /bin/sh -xe /tmp/jenkins17048891606627050577.sh
++ docker-compose up -d json-server
+database_json is up-to-date
++ docker-compose up -d frontend
+Starting vue_ui ... 
+Starting vue_ui ... done
++ docker run -p 5000:8080 vue_project_frontend
+
+> practica_final@0.1.0 serve
+> vue-cli-service serve
+
+ INFO  Starting development server...
+[3%] setup (watch run)
+[2K[1A[2K[G[3%] setup (watch run webpack-dev-middleware)
+[2K[1A[2K[G[3%] setup (watch run)
+[2K[1A[2K[G[4%] setup (normal module factory)
+[2K[1A[2K[G[4%] setup (normal module factory CaseSensitivePathsPlugin)
+[2K[1A[2K[G[4%] setup (normal module factory)
+[2K[1A[2K[G[5%] setup (context module factory)
+[2K[1A[2K[G[6%] setup (before compile)
+[2K[1A[2K[G[6%] setup (before compile ProgressPlugin)
+[2K[1A[2K[G[6%] setup (before compile)
+[2K[1A[2K[G[7%] setup (compile)
+[2K[1A[2K[G[7%] setup (compile ExternalsPlugin)
+[2K[1A[2K[G[7%] setup (compile)
+[2K[1A[2K[G[8%] setup (compilation)
+[2K[1A[2K[G[8%] setup (compilation CopyPlugin)
+[2K[1A[2K[G[8%] setup (compilation ArrayPushCallbackChunkFormatPlugin)
+[2K[1A[2K[G[8%] setup (compilation JsonpChunkLoadingPlugin)
+[2K[1A[2K[G[8%] setup (compilation StartupChunkDependenciesPlugin)
+[2K[1A[2K[G[8%] setup (compilation ImportScriptsChunkLoadingPlugin)
+[2K[1A[2K[G[8%] setup (compilation FetchCompileWasmPlugin)
+[2K[1A[2K[G[8%] setup (compilation FetchCompileAsyncWasmPlugin)
+[2K[1A[2K[G[8%] setup (compilation WorkerPlugin)
+[2K[1A[2K[G[8%] setup (compilation SplitChunksPlugin)
+[2K[1A[2K[G[8%] setup (compilation ResolverCachePlugin)
+[2K[1A[2K[G[8%] setup (compilation HtmlWebpackPlugin)
+[2K[1A[2K[G[8%] setup (compilation)
+[2K[1A[2K[G[9%] setup (compilation)
+[2K[1A[2K[G[9%] setup (compilation vue-loader-plugin)
+[2K[1A[2K[G[9%] setup (compilation DefinePlugin)
+[2K[1A[2K[G[9%] setup (compilation ProgressPlugin)
+[2K[1A[2K[G[9%] setup (compilation EntryPlugin)
+[2K[1A[2K[G[9%] setup (compilation ChunkPrefetchPreloadPlugin)
+[2K[1A[2K[G[9%] setup (compilation ModuleInfoHeaderPlugin)
+[2K[1A[2K[G[9%] setup (compilation EvalSourceMapDevToolPlugin)
+[2K[1A[2K[G[9%] setup (compilation JavascriptModulesPlugin)
+[2K[1A[2K[G[9%] setup (compilation JsonModulesPlugin)
+[2K[1A[2K[G[9%] setup (compilation AssetModulesPlugin)
+[2K[1A[2K[G[9%] setup (compilation EntryPlugin)
+[2K[1A[2K[G[9%] setup (compilation RuntimePlugin)
+[2K[1A[2K[G[9%] setup (compilation InferAsyncModulesPlugin)
+[2K[1A[2K[G[9%] setup (compilation DataUriPlugin)
+[2K[1A[2K[G[9%] setup (compilation FileUriPlugin)
+[2K[1A[2K[G[9%] setup (compilation CompatibilityPlugin)
+[2K[1A[2K[G[9%] setup (compilation HarmonyModulesPlugin)
+[2K[1A[2K[G[9%] setup (compilation AMDPlugin)
+[2K[1A[2K[G[9%] setup (compilation RequireJsStuffPlugin)
+[2K[1A[2K[G[9%] setup (compilation CommonJsPlugin)
+[2K[1A[2K[G[9%] setup (compilation LoaderPlugin)
+[2K[1A[2K[G[9%] setup (compilation NodeStuffPlugin)
+[2K[1A[2K[G[9%] setup (compilation APIPlugin)
+[2K[1A[2K[G[9%] setup (compilation ExportsInfoApiPlugin)
+[2K[1A[2K[G[9%] setup (compilation WebpackIsIncludedPlugin)
+[2K[1A[2K[G[9%] setup (compilation ConstPlugin)
+[2K[1A[2K[G[9%] setup (compilation UseStrictPlugin)
+[2K[1A[2K[G[9%] setup (compilation RequireIncludePlugin)
+[2K[1A[2K[G[9%] setup (compilation RequireEnsurePlugin)
+[2K[1A[2K[G[9%] setup (compilation RequireContextPlugin)
+[2K[1A[2K[G[9%] setup (compilation ImportPlugin)
+[2K[1A[2K[G[9%] setup (compilation RequireContextPlugin)
+[2K[1A[2K[G[9%] setup (compilation SystemPlugin)
+[2K[1A[2K[G[9%] setup (compilation ImportMetaPlugin)
+[2K[1A[2K[G[9%] setup (compilation URLPlugin)
+[2K[1A[2K[G[9%] setup (compilation DefaultStatsFactoryPlugin)
+[2K[1A[2K[G[9%] setup (compilation DefaultStatsPresetPlugin)
+[2K[1A[2K[G[9%] setup (compilation DefaultStatsPrinterPlugin)
+[2K[1A[2K[G[9%] setup (compilation JavascriptMetaInfoPlugin)
+[2K[1A[2K[G[9%] setup (compilation EnsureChunkConditionsPlugin)
+[2K[1A[2K[G[9%] setup (compilation RemoveEmptyChunksPlugin)
+[2K[1A[2K[G[9%] setup (compilation MergeDuplicateChunksPlugin)
+[2K[1A[2K[G[9%] setup (compilation SideEffectsFlagPlugin)
+[2K[1A[2K[G[9%] setup (compilation FlagDependencyExportsPlugin)
+[2K[1A[2K[G[9%] setup (compilation NamedModuleIdsPlugin)
+[2K[1A[2K[G[9%] setup (compilation NamedChunkIdsPlugin)
+[2K[1A[2K[G[9%] setup (compilation DefinePlugin)
+[2K[1A[2K[G[9%] setup (compilation TemplatedPathPlugin)
+[2K[1A[2K[G[9%] setup (compilation RecordIdsPlugin)
+[2K[1A[2K[G[9%] setup (compilation WarnCaseSensitiveModulesPlugin)
+[2K[1A[2K[G[9%] setup (compilation EntryPlugin)
+[2K[1A[2K[G[9%] setup (compilation ProvidePlugin)
+[2K[1A[2K[G[9%] setup (compilation HotModuleReplacementPlugin)
+[2K[1A[2K[G[9%] setup (compilation ProgressPlugin)
+[2K[1A[2K[G[9%] setup (compilation)
+[2K[1A[2K[G[10%] building 
+[2K[1A[2K[G[10%] building (0/0 modules)
+[2K[1A[2K[G[10%] building (import loader babel-loader/lib/index.js)
+[2K[1A[2K[G[10%] building (0/1 modules)
+[2K[1A[2K[G[10%] building (0/3 modules)
+[2K[1A[2K[G[10%] building (0/6 modules)
+[2K[1A[2K[G[24%] building (3/9 modules)
+[2K[1A[2K[G[24%] building (3/15 modules)
+[2K[1A[2K[G[24%] building (import loader vue-loader/dist/index.js)
+[2K[1A[2K[G[24%] building (3/16 modules)
+[2K[1A[2K[G[24%] building (import loader vue-loader/dist/pitcher.js)
+[2K[1A[2K[G[24%] building (import loader vue-loader/dist/templateLoader.js)
+[2K[1A[2K[G[24%] building (7/23 modules)
+[2K[1A[2K[G[24%] building (import loader vue-style-loader/index.js)
+[2K[1A[2K[G[24%] building (import loader css-loader/dist/cjs.js)
+[2K[1A[2K[G[24%] building (import loader postcss-loader/dist/cjs.js)
+[2K[1A[2K[G[24%] building (7/26 modules)
+[2K[1A[2K[G[24%] building (import loader vue-loader/dist/stylePostLoader.js)
+[2K[1A[2K[G[24%] building (12/34 modules)
+[2K[1A[2K[G[24%] building (12/37 modules)
+[2K[1A[2K[G[24%] building (17/44 modules)
+[2K[1A[2K[G[24%] building (18/84 modules)
+[2K[1A[2K[G[24%] building (20/100 modules)
+[2K[1A[2K[G[24%] building (80/139 modules)
+[2K[1A[2K[G[38%] building (101/142 modules)
+[2K[1A[2K[G[51%] building (137/160 modules)
+[2K[1A[2K[G[51%] building (168/173 modules)
+[2K[1A[2K[G[65%] building (173/173 modules)
+[2K[1A[2K[G[65%] building 
+[2K[1A[2K[G[69%] building (finish)
+[2K[1A[2K[G[70%] sealing (finish module graph)
+[2K[1A[2K[G[70%] sealing (finish module graph ResolverCachePlugin)
+[2K[1A[2K[G[70%] sealing (finish module graph InferAsyncModulesPlugin)
+[2K[1A[2K[G[70%] sealing (finish module graph FlagDependencyExportsPlugin)
+[2K[1A[2K[G[70%] sealing (finish module graph)
+[2K[1A[2K[G[71%] sealing (plugins)
+[2K[1A[2K[G[71%] sealing (plugins WarnCaseSensitiveModulesPlugin)
+[2K[1A[2K[G[71%] sealing (plugins)
+[2K[1A[2K[G[71%] sealing (dependencies optimization)
+[2K[1A[2K[G[71%] sealing (dependencies optimization SideEffectsFlagPlugin)
+[2K[1A[2K[G[71%] sealing (dependencies optimization)
+[2K[1A[2K[G[72%] sealing (after dependencies optimization)
+[2K[1A[2K[G[73%] sealing (chunk graph)
+[2K[1A[2K[G[73%] sealing (after chunk graph)
+[2K[1A[2K[G[74%] sealing (optimizing)
+[2K[1A[2K[G[74%] sealing (module optimization)
+[2K[1A[2K[G[75%] sealing (after module optimization)
+[2K[1A[2K[G[76%] sealing (chunk optimization)
+[2K[1A[2K[G[76%] sealing (chunk optimization EnsureChunkConditionsPlugin)
+[2K[1A[2K[G[76%] sealing (chunk optimization RemoveEmptyChunksPlugin)
+[2K[1A[2K[G[76%] sealing (chunk optimization MergeDuplicateChunksPlugin)
+[2K[1A[2K[G[76%] sealing (chunk optimization SplitChunksPlugin)
+[2K[1A[2K[G[76%] sealing (chunk optimization RemoveEmptyChunksPlugin)
+[2K[1A[2K[G[76%] sealing (chunk optimization)
+[2K[1A[2K[G[76%] sealing (after chunk optimization)
+[2K[1A[2K[G[77%] sealing (module and chunk tree optimization)
+[2K[1A[2K[G[77%] sealing (module and chunk tree optimization PersistentChildCompilerSinglet
+onPlugin)
+[2K[1A[2K[1A[2K[G[77%] sealing (module and chunk tree optimization)
+[2K[1A[2K[G[78%] sealing (after module and chunk tree optimization)
+[2K[1A[2K[G[78%] sealing (chunk modules optimization)
+[2K[1A[2K[G[79%] sealing (after chunk modules optimization)
+[2K[1A[2K[G[80%] sealing (module reviving)
+[2K[1A[2K[G[80%] sealing (module reviving RecordIdsPlugin)
+[2K[1A[2K[G[80%] sealing (module reviving)
+[2K[1A[2K[G[80%] sealing (before module ids)
+[2K[1A[2K[G[81%] sealing (module ids)
+[2K[1A[2K[G[81%] sealing (module ids NamedModuleIdsPlugin)
+[2K[1A[2K[G[81%] sealing (module ids)
+[2K[1A[2K[G[82%] sealing (module id optimization)
+[2K[1A[2K[G[82%] sealing (module id optimization)
+[2K[1A[2K[G[83%] sealing (chunk reviving)
+[2K[1A[2K[G[83%] sealing (chunk reviving RecordIdsPlugin)
+[2K[1A[2K[G[83%] sealing (chunk reviving)
+[2K[1A[2K[G[83%] sealing (before chunk ids)
+[2K[1A[2K[G[84%] sealing (chunk ids)
+[2K[1A[2K[G[84%] sealing (chunk ids NamedChunkIdsPlugin)
+[2K[1A[2K[G[84%] sealing (chunk ids)
+[2K[1A[2K[G[85%] sealing (chunk id optimization)
+[2K[1A[2K[G[85%] sealing (after chunk id optimization)
+[2K[1A[2K[G[86%] sealing (record modules)
+[2K[1A[2K[G[86%] sealing (record modules RecordIdsPlugin)
+[2K[1A[2K[G[86%] sealing (record modules)
+[2K[1A[2K[G[87%] sealing (record chunks)
+[2K[1A[2K[G[87%] sealing (record chunks RecordIdsPlugin)
+[2K[1A[2K[G[87%] sealing (record chunks)
+[2K[1A[2K[G[87%] sealing (module hashing)
+[2K[1A[2K[G[88%] sealing (code generation)
+[2K[1A[2K[G[89%] sealing (runtime requirements)
+[2K[1A[2K[G[89%] sealing (hashing)
+[2K[1A[2K[G[90%] sealing (after hashing)
+[2K[1A[2K[G[91%] sealing (record hash)
+[2K[1A[2K[G[91%] sealing (module assets processing)
+[2K[1A[2K[G[92%] sealing (chunk assets processing)
+[2K[1A[2K[G[92%] sealing (asset processing)
+[2K[1A[2K[G[92%] sealing (asset processing copy-webpack-plugin)
+[2K[1A[2K[G[92%] sealing (asset processing HotModuleReplacementPlugin)
+[2K[1A[2K[G[92%] sealing (asset processing PersistentChildCompilerSingletonPlugin)
+[2K[1A[2K[G[92%] sealing (asset processing HtmlWebpackPlugin)
+[2K[1A[2K[G[92%] sealing (asset processing)
+[2K[1A[2K[G[93%] sealing (after asset optimization)
+[2K[1A[2K[G[94%] sealing (recording)
+[2K[1A[2K[G[94%] sealing (recording HotModuleReplacementPlugin)
+[2K[1A[2K[G[94%] sealing (recording)
+[2K[1A[2K[G[94%] sealing (after seal)
+[2K[1A[2K[G[95%] emitting (emit)
+[2K[1A[2K[G[98%] emitting (after emit)
+[2K[1A[2K[GBuild finished at 21:23:38 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:38 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:38 by 0.000s
+[2K[1A[2K[G DONE  Compiled successfully in 27491ms9:23:38 PM
+
+Build finished at 21:23:39 by 0.000s
+[2K[1A[2K[G
+  App running at:
+  - Local:   http://localhost:8080/ 
+  - Network: http://172.17.0.2:8080/
+
+  Note that the development build is not optimized.
+  To create a production build, run yarn build.
+
+Build finished at 21:23:40 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:40 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:40 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:40 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:40 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:40 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:40 by 0.000s
+[2K[1A[2K[GBuild finished at 21:23:40 by 0.000s
+[2K[1A[2K[G WAIT  Compiling...9:23:40 PM
+
+Compiling...
+
+
